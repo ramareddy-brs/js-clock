@@ -17,3 +17,31 @@ function setTheme(theme) {
   localStorage.setItem("movie-theme", theme);
 }
 setTheme(localStorage.getItem("movie-theme") || chathams_blue);
+
+function updateDateTime() {
+  var currentDate = new Date();
+  var amAndPm = "PM";
+
+  var year = currentDate.getFullYear();
+  var month = currentDate.toLocaleString('default', { month: 'long' });
+  var day = currentDate.getDate();
+  var hours = currentDate.getHours();
+  var minutes = currentDate.getMinutes();
+  var seconds = currentDate.getSeconds();
+
+  var formattedDate = month + ' ' + day + ', ' + year;
+  var formattedTime = hours + ':' + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+  if(hours < 12){
+    result = "AM";
+  }else {
+    result = amAndPm;
+  }
+
+  document.getElementById('date').innerHTML = "Current Date: " + formattedDate;
+  document.getElementById('time').innerHTML = "Current Time: " + formattedTime + " " + result;
+}
+
+setInterval(updateDateTime, 1000);
+
+updateDateTime();

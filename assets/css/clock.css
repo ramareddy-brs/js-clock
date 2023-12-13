@@ -4,7 +4,7 @@
   --tamarillo: #991e14;
   --yellow_sea: #fead06;
 }
-main {
+.clock-container {
   display: flex;
   justify-content: center;
   align-items: center;
